@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RoleModel name="WebRole1" version="1.0">
+  <Properties>
+    <Property name="RoleType" value="Web" />
+    <Property name="RoleName" value="WebRole1" />
+    <Property name="ProjectName" value="WebRole1" />
+    <Property name="Configuration" value="Debug" />
+    <Property name="Platform" value="AnyCPU" />
+    <Property name="OutputDir" value="C:\WAPTK\Labs\IntroductionToWindowsAzureVS2010\Source\Ex1-BuildingYourFirstWindowsAzureApp\CS\TPE\TPE\obj\Debug\WebRole1\" />
+    <Property name="EntryPoint" value="WebRole1.dll" />
+    <Property name="SourceDir" value="C:\WAPTK\Labs\IntroductionToWindowsAzureVS2010\Source\Ex1-BuildingYourFirstWindowsAzureApp\CS\TPE\WebRole1\" />
+    <Property name="RoleTargetFramework" value="v4.0" />
+    <Property name="OriginalItemSpec" value="C:\WAPTK\Labs\IntroductionToWindowsAzureVS2010\Source\Ex1-BuildingYourFirstWindowsAzureApp\CS\TPE\TPE\TPE.ccproj" />
+    <Property name="MSBuildSourceProjectFile" value="C:\WAPTK\Labs\IntroductionToWindowsAzureVS2010\Source\Ex1-BuildingYourFirstWindowsAzureApp\CS\TPE\TPE\TPE.ccproj" />
+    <Property name="MSBuildSourceTargetName" value="ResolveSingleWebRoleReference" />
+    <Property name="TargetFrameworkVersion" value="v4.0" />
+    <Property name="TargetRuntimeVersion" value="v4.0" />
+  </Properties>
+</RoleModel>
