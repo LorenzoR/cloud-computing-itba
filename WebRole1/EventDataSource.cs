@@ -35,6 +35,9 @@ namespace WebRole1
 
         public void Delete(EventDataModel itemToDelete)
         {
+           /* System.Diagnostics.Debug.WriteLine("borro artist = " + itemToDelete.Artist);
+            System.Diagnostics.Trace.WriteLine("borro artist = " + itemToDelete.Artist);
+            */
             _ServiceContext.AttachTo(EventDataServiceContext.EventTableName, itemToDelete, "*");
             _ServiceContext.DeleteObject(itemToDelete);
             _ServiceContext.SaveChanges();
@@ -44,6 +47,13 @@ namespace WebRole1
         {
             _ServiceContext.AddObject(EventDataServiceContext.EventTableName, newItem);
             _ServiceContext.SaveChanges();
+        }
+
+        public void Update(EventDataModel newItem)
+        {
+            _ServiceContext.AttachTo(EventDataServiceContext.EventTableName, newItem, "*");
+            //_ServiceContext.UpdateObject(newItem);
+           // _ServiceContext.SaveChanges();
         }
 
         

@@ -99,7 +99,7 @@
     <%-- Data Sources --%>
     <asp:ObjectDataSource runat="server" ID="eventData" 	TypeName="WebRole1.EventDataSource"
         DataObjectTypeName="WebRole1.EventDataModel" 
-        SelectMethod="Select" DeleteMethod="Delete" InsertMethod="Insert">    
+        SelectMethod="Select" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">    
     </asp:ObjectDataSource>
 
     </div>
