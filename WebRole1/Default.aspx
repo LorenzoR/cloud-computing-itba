@@ -74,10 +74,8 @@
                     Runat="server" />
             <asp:Calendar
                 id="calendarCalendar"
-                runat="server"/>
-           
-
-
+                runat="server"
+                SelectedDate='<%# Bind("EventDate") %>'/>
             <asp:Button
                     id="insertButton"
                     Text="Add"

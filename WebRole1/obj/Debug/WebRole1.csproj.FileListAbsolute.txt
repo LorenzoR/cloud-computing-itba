@@ -7,3 +7,12 @@ C:\WAPTK\Labs\IntroductionToWindowsAzureVS2010\Source\Ex1-BuildingYourFirstWindo
 C:\WAPTK\Labs\IntroductionToWindowsAzureVS2010\Source\Ex1-BuildingYourFirstWindowsAzureApp\CS\TPE\WebRole1\obj\Debug\ResolveAssemblyReference.cache
 C:\WAPTK\Labs\IntroductionToWindowsAzureVS2010\Source\Ex1-BuildingYourFirstWindowsAzureApp\CS\TPE\WebRole1\obj\Debug\WebRole1.dll
 C:\WAPTK\Labs\IntroductionToWindowsAzureVS2010\Source\Ex1-BuildingYourFirstWindowsAzureApp\CS\TPE\WebRole1\obj\Debug\WebRole1.pdb
+F:\ITBA\Cloud Computing\WebRole1\bin\WebRole1.dll
+F:\ITBA\Cloud Computing\WebRole1\bin\WebRole1.pdb
+F:\ITBA\Cloud Computing\WebRole1\bin\Microsoft.WindowsAzure.Diagnostics.dll
+F:\ITBA\Cloud Computing\WebRole1\bin\Microsoft.WindowsAzure.StorageClient.dll
+F:\ITBA\Cloud Computing\WebRole1\bin\Microsoft.WindowsAzure.Diagnostics.xml
+F:\ITBA\Cloud Computing\WebRole1\bin\Microsoft.WindowsAzure.StorageClient.xml
+F:\ITBA\Cloud Computing\WebRole1\obj\Debug\ResolveAssemblyReference.cache
+F:\ITBA\Cloud Computing\WebRole1\obj\Debug\WebRole1.dll
+F:\ITBA\Cloud Computing\WebRole1\obj\Debug\WebRole1.pdb
