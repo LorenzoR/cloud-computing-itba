@@ -64,18 +64,31 @@
                     Runat="server" />
             <asp:TextBox
                     id="descriptionBox"
+                    Wrap="True"
+                    TextMode="MultiLine"
                     Text='<%# Bind("Description") %>'
+                    Runat="server" />
+            <br />
+            <asp:Label
+                    id="CounterLabel"
+                    Text="Counter:"
+                    AssociatedControlID="counterBox"
+                    Runat="server" />
+            <asp:TextBox
+                    id="counterBox"
+                    Text='<%# Bind("VisitCounter") %>'
                     Runat="server" />
             <br />
             <asp:Label
                     id="dateLabel"
                     Text="Date:"
-                    AssociatedControlID="calendarCalendar"
+                    AssociatedControlID="Calendar"
                     Runat="server" />
             <asp:Calendar
-                id="calendarCalendar"
+                id="Calendar"
                 runat="server"
                 SelectedDate='<%# Bind("EventDate") %>'/>
+
             <asp:Button
                     id="insertButton"
                     Text="Add"
