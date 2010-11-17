@@ -21,7 +21,7 @@ namespace WebRole1
         public string Place { get; set; }
         public string Description { get; set; }
         public DateTime EventDate { get; set; }
-        //public int VisitCounter { get; set; }
+        public int VisitCounter { get; set; }
         
     }
 }
