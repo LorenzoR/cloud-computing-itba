@@ -14,7 +14,7 @@
         DataSourceId="eventData"
         DataKeyNames="PartitionKey"
         AllowPaging="False"
-        AutoGenerateColumns="True"
+        AutoGenerateColumns="False"
         GridLines="Vertical"
         Runat="server" 
         BackColor="White" ForeColor="Black"
@@ -22,6 +22,10 @@
         <Columns>
             <asp:CommandField ShowDeleteButton="true"  />
             <asp:CommandField ShowEditButton="true"  />
+            <asp:BoundField HeaderText="Artist" DataField="Artist" />
+            <asp:BoundField HeaderText="Place" DataField="Place" />
+            <asp:BoundField HeaderText="Description" DataField="Description" />
+            <asp:BoundField HeaderText="EventDate" DataField="EventDate" />
         </Columns>
         <RowStyle BackColor="#F7F7DE" />
         <FooterStyle BackColor="#CCCC99" />
@@ -80,14 +84,15 @@
                     Runat="server" />
             <br />
             <asp:Label
-                    id="dateLabel"
+                    id="DateLabel"
                     Text="Date:"
-                    AssociatedControlID="Calendar"
+                    AssociatedControlID="dateBox"
                     Runat="server" />
-            <asp:Calendar
-                id="Calendar"
-                runat="server"
-                SelectedDate='<%# Bind("EventDate") %>'/>
+            <asp:TextBox
+                    id="dateBox"
+                    Text='<%# Bind("EventDate") %>'
+                    Runat="server" />
+            <br />
 
             <asp:Button
                     id="insertButton"
@@ -104,5 +109,8 @@
 
     </div>
     </form>
+
+    <a href="ShowEvents.aspx">Seccion para Usuarios</a>
+
 </body>
 </html>
