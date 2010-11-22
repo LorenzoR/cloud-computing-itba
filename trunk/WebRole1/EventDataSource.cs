@@ -33,6 +33,18 @@ namespace WebRole1
             return queryResults;
         }
 
+        public IEnumerable<EventDataModel> Select(string Artist)
+        {
+            var results = from c in _ServiceContext.EventTable
+                          where c.Artist == Artist
+                          select c;
+
+            var query = results.AsTableServiceQuery<EventDataModel>();
+            var queryResults = query.Execute();
+
+            return queryResults;
+        }
+
         public void Delete(EventDataModel itemToDelete)
         {
            /* System.Diagnostics.Debug.WriteLine("borro artist = " + itemToDelete.Artist);
@@ -52,8 +64,8 @@ namespace WebRole1
         public void Update(EventDataModel newItem)
         {
             _ServiceContext.AttachTo(EventDataServiceContext.EventTableName, newItem, "*");
-            //_ServiceContext.UpdateObject(newItem);
-           // _ServiceContext.SaveChanges();
+            _ServiceContext.UpdateObject(newItem);
+            _ServiceContext.SaveChanges();
         }
 
         

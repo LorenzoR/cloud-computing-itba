@@ -20,7 +20,7 @@ namespace WebRole1
         public string Artist { get; set; }
         public string Place { get; set; }
         public string Description { get; set; }
-        public DateTime EventDate { get; set; }
+        public string EventDate { get; set; }
         public int VisitCounter { get; set; }
         
     }
