@@ -10,7 +10,7 @@
 namespace WebRole1 {
     
     
-    public partial class _Default {
+    public partial class Menu {
         
         /// <summary>
         /// Head1 control.
