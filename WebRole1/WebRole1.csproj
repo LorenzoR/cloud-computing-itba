@@ -60,7 +60,10 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="EventDetails.aspx" />
+    <Content Include="Menu.aspx" />
+    <Content Include="ShowEventAdmins.aspx" />
     <Content Include="ShowEvents.aspx" />
+    <Content Include="ShowEventsAdmin.aspx" />
     <Content Include="ShowMostVisited.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -129,13 +132,34 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Menu.aspx.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu.aspx.designer.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShowEventAdmins.aspx.cs">
+      <DependentUpon>ShowEventAdmins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowEventAdmins.aspx.designer.cs">
+      <DependentUpon>ShowEventAdmins.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ShowEvents.aspx.cs">
       <DependentUpon>ShowEvents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ShowEvents.aspx.designer.cs">
       <DependentUpon>ShowEvents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowEventsAdmin.aspx.cs">
+      <DependentUpon>ShowEventsAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowEventsAdmin.aspx.designer.cs">
+      <DependentUpon>ShowEventsAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="ShowMostVisited.aspx.cs">
       <DependentUpon>ShowMostVisited.aspx</DependentUpon>
