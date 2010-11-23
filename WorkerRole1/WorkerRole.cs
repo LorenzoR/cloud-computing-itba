@@ -8,6 +8,7 @@ using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using Microsoft.WindowsAzure.StorageClient;
+using WebRole1;
 
 namespace WorkerRole1
 {
@@ -16,6 +17,7 @@ namespace WorkerRole1
         private CloudQueue queue;
         private int visitCounter;
         private Dictionary<string, int> visitCounterMap = new Dictionary<string, int>();
+        EventDataSource eventDS = null;
 
         public override void Run()
         {
@@ -53,8 +55,22 @@ namespace WorkerRole1
 
                         if (visitCounterMap[partitionKey] >= 10)
                         {
+                            
+
+                            var query = eventDS.Select(partitionKey);
+
+                            EventDataModel evento = query.First();
+
+                            System.Diagnostics.Trace.WriteLine("!!!!!!!!! Event " + evento.Artist);
+
+                            evento.VisitCounter += visitCounterMap[partitionKey] + 100;
+
+                            eventDS.Update(evento);
+
+                            visitCounterMap[partitionKey] = 0;
 
                         }
+
                         queue.DeleteMessage(msg);
 
                     }
@@ -123,11 +139,15 @@ namespace WorkerRole1
 
             Trace.TraceInformation("Creating container and queue...");
 
+            eventDS = new EventDataSource();
+
             bool storageInitialized = false;
             while (!storageInitialized)
             {
                 try
                 {
+                    
+
                     // create the message queue(s)
                     queue.CreateIfNotExist();
 
