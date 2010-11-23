@@ -9,4 +9,10 @@
       <Setting name="DataConnectionString" />
     </ConfigurationSettings>
   </WebRole>
+  <WorkerRole name="WorkerRole1">
+    <ConfigurationSettings>
+      <Setting name="DiagnosticsConnectionString" />
+      <Setting name="DataConnectionString" />
+    </ConfigurationSettings>
+  </WorkerRole>
 </ServiceDefinition>

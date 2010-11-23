@@ -40,7 +40,7 @@
         DataObjectTypeName="WebRole1.EventDataModel" 
         SelectMethod="Select" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">    
         <SelectParameters>
-          <asp:QueryStringParameter Name="Artist" QueryStringField="Artist" DefaultValue="" />
+          <asp:QueryStringParameter Name="PartitionKey" QueryStringField="PartitionKey" DefaultValue="" />
         </SelectParameters>
     </asp:ObjectDataSource>
 

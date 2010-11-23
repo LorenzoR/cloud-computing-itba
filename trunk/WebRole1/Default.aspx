@@ -14,7 +14,7 @@
         DataSourceId="eventData"
         DataKeyNames="PartitionKey"
         AllowPaging="False"
-        AutoGenerateColumns="False"
+        AutoGenerateColumns="True"
         GridLines="Vertical"
         Runat="server" 
         BackColor="White" ForeColor="Black"

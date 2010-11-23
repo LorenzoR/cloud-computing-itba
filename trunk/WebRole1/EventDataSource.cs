@@ -5,12 +5,17 @@ using System.Web;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.StorageClient;
 using System.Data.Services.Client;
+using System.IO;
+using System.Net;
 
 namespace WebRole1
 {
     public class EventDataSource
     {
         private EventDataServiceContext _ServiceContext = null;
+        private static bool storageInitialized = false;
+        private static CloudQueueClient queueStorage;
+        private static object gate = new Object();
 
         public EventDataSource()
         {
@@ -33,14 +38,26 @@ namespace WebRole1
             return queryResults;
         }
 
-        public IEnumerable<EventDataModel> Select(string Artist)
+        public IEnumerable<EventDataModel> Select(string PartitionKey)
         {
+            InitializeStorage();
+
+
             var results = from c in _ServiceContext.EventTable
-                          where c.Artist == Artist
+                          where c.PartitionKey == PartitionKey
                           select c;
 
             var query = results.AsTableServiceQuery<EventDataModel>();
             var queryResults = query.Execute();
+
+
+            // queue a message to process the image
+            var queue = queueStorage.GetQueueReference("guestthumbs");
+            var message = new CloudQueueMessage(String.Format("{0},{1},{2}", PartitionKey, "parte2", "parte3"));
+            queue.AddMessage(message);
+            System.Diagnostics.Trace.TraceInformation("***********Queued message to process");
+            System.Diagnostics.Trace.WriteLine("***********Queued message to process");
+
 
             return queryResults;
         }
@@ -57,6 +74,8 @@ namespace WebRole1
 
         public void Insert(EventDataModel newItem)
         {
+            
+
             _ServiceContext.AddObject(EventDataServiceContext.EventTableName, newItem);
             _ServiceContext.SaveChanges();
         }
@@ -66,6 +85,41 @@ namespace WebRole1
             _ServiceContext.AttachTo(EventDataServiceContext.EventTableName, newItem, "*");
             _ServiceContext.UpdateObject(newItem);
             _ServiceContext.SaveChanges();
+        }
+
+        private void InitializeStorage()
+        {
+            if (storageInitialized)
+            {
+                return;
+            }
+
+            lock (gate)
+            {
+                if (storageInitialized)
+                {
+                    return;
+                }
+
+                try
+                {
+                    // read account configuration settings
+                    var storageAccount = CloudStorageAccount.FromConfigurationSetting("DataConnectionString");
+
+                    // create queue to communicate with worker role
+                    queueStorage = storageAccount.CreateCloudQueueClient();
+                    CloudQueue queue = queueStorage.GetQueueReference("guestthumbs");
+                    queue.CreateIfNotExist();
+                }
+                catch (WebException)
+                {
+                    throw new WebException("Storage services initialization failure. "
+                        + "Check your storage account configuration settings. If running locally, "
+                        + "ensure that the Development Storage service is running.");
+                }
+
+                storageInitialized = true;
+            }
         }
 
         
