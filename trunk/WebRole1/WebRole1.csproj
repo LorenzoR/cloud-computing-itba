@@ -61,6 +61,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="EventDetails.aspx" />
     <Content Include="ShowEvents.aspx" />
+    <Content Include="ShowMostVisited.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -118,9 +119,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EventDataModel.cs" />
-    <Compile Include="EventDataServiceContext.cs" />
-    <Compile Include="EventDataSource.cs" />
     <Compile Include="EventDetails.aspx.cs">
       <DependentUpon>EventDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -139,6 +137,13 @@
     <Compile Include="ShowEvents.aspx.designer.cs">
       <DependentUpon>ShowEvents.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShowMostVisited.aspx.cs">
+      <DependentUpon>ShowMostVisited.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowMostVisited.aspx.designer.cs">
+      <DependentUpon>ShowMostVisited.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -154,6 +159,12 @@
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EventData\EventData.csproj">
+      <Project>{ADF03252-3275-4F1B-B96F-C7192B503735}</Project>
+      <Name>EventData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

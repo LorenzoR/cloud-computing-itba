@@ -38,14 +38,14 @@
     <%-- Data Sources --%>
     <asp:ObjectDataSource runat="server" ID="eventData" 	TypeName="WebRole1.EventDataSource"
         DataObjectTypeName="WebRole1.EventDataModel" 
-        SelectMethod="Select">    
+        SelectMethod="SelectMostVisited">    
     </asp:ObjectDataSource>
 
     </div>
     </form>
 
     <a href="Default.aspx">Seccion para Administradores</a>
-    <a href="ShowMostVisited.aspx">Los mas Visitados</a>
+    <a href="ShowEvents.aspx">Seccion para Usuarios</a>
 
 </body>
 </html>

@@ -14,7 +14,7 @@
         DataSourceId="eventData"
         DataKeyNames="PartitionKey"
         AllowPaging="False"
-        AutoGenerateColumns="True"
+        AutoGenerateColumns="False"
         GridLines="Vertical"
         Runat="server" 
         BackColor="White" ForeColor="Black"
@@ -26,6 +26,7 @@
             <asp:BoundField HeaderText="Place" DataField="Place" />
             <asp:BoundField HeaderText="Description" DataField="Description" />
             <asp:BoundField HeaderText="EventDate" DataField="EventDate" />
+            <asp:BoundField HeaderText="VisitCounter" DataField="VisitCounter" />
         </Columns>
         <RowStyle BackColor="#F7F7DE" />
         <FooterStyle BackColor="#CCCC99" />
@@ -71,16 +72,6 @@
                     Wrap="True"
                     TextMode="MultiLine"
                     Text='<%# Bind("Description") %>'
-                    Runat="server" />
-            <br />
-            <asp:Label
-                    id="CounterLabel"
-                    Text="Counter:"
-                    AssociatedControlID="counterBox"
-                    Runat="server" />
-            <asp:TextBox
-                    id="counterBox"
-                    Text='<%# Bind("VisitCounter") %>'
                     Runat="server" />
             <br />
             <asp:Label
