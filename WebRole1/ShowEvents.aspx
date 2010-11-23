@@ -24,8 +24,8 @@
             <asp:BoundField HeaderText="Place" DataField="Place" />
             <asp:BoundField HeaderText="Description" DataField="Description" />
             <asp:BoundField HeaderText="EventDate" DataField="EventDate" />
-            <asp:HyperLinkField HeaderText="View Event" Text="View" DataNavigateUrlFields="Artist"
-                        DataNavigateUrlFormatString="EventDetails.aspx?Artist={0}" />
+            <asp:HyperLinkField HeaderText="View Event" Text="View" DataNavigateUrlFields="PartitionKey"
+                        DataNavigateUrlFormatString="EventDetails.aspx?PartitionKey={0}" />
         </Columns>
         <RowStyle BackColor="#F7F7DE" />
         <FooterStyle BackColor="#CCCC99" />
