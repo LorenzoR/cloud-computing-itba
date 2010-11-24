@@ -36,6 +36,9 @@
     <Reference Include="Microsoft.WindowsAzure.Diagnostics" />
     <Reference Include="Microsoft.WindowsAzure.ServiceRuntime" />
     <Reference Include="Microsoft.WindowsAzure.StorageClient" />
+    <Reference Include="SecurityTokenVisualizerControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -71,7 +74,9 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

@@ -5,13 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebRole1
+public partial class SiteMaster : System.Web.UI.MasterPage
 {
-    public partial class SiteMaster : System.Web.UI.MasterPage
+    protected void Page_Load(object sender, EventArgs e)
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

@@ -292,3 +292,11 @@ div.accountInfo
     text-align: right;
     padding-right: 10px;
 }
+
+.secretContent
+{
+  border-style: solid; 
+  background-color: Red; 
+  padding: 5px;
+  color: White;
+}
