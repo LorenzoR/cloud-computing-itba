@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WebRole1
 {
-    public partial class ShowEventAdmins : System.Web.UI.Page
+    public partial class ShowEventDetails : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

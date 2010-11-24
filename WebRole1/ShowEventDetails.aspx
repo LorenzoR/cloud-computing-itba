@@ -1,5 +1,5 @@
-﻿<%@ Page Title="Events" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="ShowEvents.aspx.cs" Inherits="WebRole1.ShowEvents" %>
+﻿<%@ Page Title="Event Details" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"  
+    CodeBehind="ShowEventDetails.aspx.cs" Inherits="WebRole1.ShowEventDetails" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -22,8 +22,7 @@
             <asp:BoundField HeaderText="Place" DataField="Place" />
             <asp:BoundField HeaderText="Description" DataField="Description" />
             <asp:BoundField HeaderText="EventDate" DataField="EventDate" />
-            <asp:HyperLinkField HeaderText="View Event" Text="View" DataNavigateUrlFields="PartitionKey"
-                        DataNavigateUrlFormatString="ShowEventDetails.aspx?PartitionKey={0}" />
+
         </Columns>
         <RowStyle BackColor="#F7F7DE" />
         <FooterStyle BackColor="#CCCC99" />
@@ -36,11 +35,14 @@
     <%-- Data Sources --%>
     <asp:ObjectDataSource runat="server" ID="eventData" 	TypeName="WebRole1.EventDataSource"
         DataObjectTypeName="WebRole1.EventDataModel" 
-        SelectMethod="Select">    
+        SelectMethod="Select" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">    
+        <SelectParameters>
+          <asp:QueryStringParameter Name="PartitionKey" QueryStringField="PartitionKey" DefaultValue="" />
+        </SelectParameters>
     </asp:ObjectDataSource>
 
     </div>
 
-    <a href="Default.aspx">Inicio</a>
+    <a href="ShowEvents.aspx">Volver</a>
 
 </asp:Content>

@@ -295,8 +295,8 @@ div.accountInfo
 
 .secretContent
 {
-  border-style: solid; 
+  /*border-style: solid; 
   background-color: Red; 
   padding: 5px;
-  color: White;
+  color: White;*/
 }
