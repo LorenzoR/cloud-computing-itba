@@ -1,16 +1,29 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebRole1._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+    CodeBehind="Default.aspx.cs" Inherits="_Default" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ Register Assembly="SecurityTokenVisualizerControl" Namespace="Microsoft.Samples.DPE.Identity.Controls"
+    TagPrefix="cc1" %>
 
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head id="Head1" runat="server">
-    <title></title>
-</head>
-<body>
-    
-    <a href="ShowEventsAdmin.aspx">Seccion para Administradores</a><br />
-    <a href="ShowEvents.aspx">Seccion para Usuarios</a><br />
-    <a href="ShowMostVisited.aspx">Los mas Visitados</a><br />
 
-</body>
-</html>
+
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+</asp:Content>
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <h2>
+        Welcome to ASP.NET!
+    </h2>
+    <p>
+        To learn more about ASP.NET visit <a href="http://www.asp.net" title="ASP.NET Website">www.asp.net</a>.
+    </p>
+    <p>
+        You can also find <a href="http://go.microsoft.com/fwlink/?LinkID=152368&amp;clcid=0x409"
+            title="MSDN ASP.NET Docs">documentation on ASP.NET at MSDN</a>.
+    </p>    
+
+    <asp:Panel Visible="false" CssClass="secretContent" runat="server" ID="SecretContent">
+    Secret Content (Only administrators can access this section)
+    </asp:Panel>
+
+    <cc1:SecurityTokenVisualizerControl ID="SecurityTokenVisualizerControl1" runat="server" />
+
+</asp:Content>
