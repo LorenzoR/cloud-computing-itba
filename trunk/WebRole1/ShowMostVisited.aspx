@@ -1,13 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShowMostVisited.aspx.cs" Inherits="WebRole1.ShowMostVisited" %>
+﻿<%@ Page Title="Most Visited" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" 
+    CodeBehind="ShowMostVisited.aspx.cs" Inherits="WebRole1.ShowMostVisited" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head id="Head1" runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+
     <div>
         <asp:GridView
         id="eventsView"
@@ -25,7 +23,7 @@
             <asp:BoundField HeaderText="Description" DataField="Description" />
             <asp:BoundField HeaderText="EventDate" DataField="EventDate" />
             <asp:HyperLinkField HeaderText="View Event" Text="View" DataNavigateUrlFields="PartitionKey"
-                        DataNavigateUrlFormatString="EventDetails.aspx?PartitionKey={0}" />
+                        DataNavigateUrlFormatString="ShowEventDetails.aspx?PartitionKey={0}" />
         </Columns>
         <RowStyle BackColor="#F7F7DE" />
         <FooterStyle BackColor="#CCCC99" />
@@ -42,10 +40,7 @@
     </asp:ObjectDataSource>
 
     </div>
-    </form>
 
-    <a href="Default.aspx">Seccion para Administradores</a>
-    <a href="ShowEvents.aspx">Seccion para Usuarios</a>
+    <a href="Default.aspx">Inicio</a>
 
-</body>
-</html>
+</asp:Content>

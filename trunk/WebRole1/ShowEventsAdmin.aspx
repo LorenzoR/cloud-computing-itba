@@ -1,13 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShowEventsAdmin.aspx.cs" Inherits="WebRole1.ShowEventsAdmin" %>
+﻿<%@ Page Title="Events ABM" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" 
+    CodeBehind="ShowEventsAdmin.aspx.cs" Inherits="WebRole1.ShowEventsAdmin" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head id="Head1" runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+
     <div>
         <asp:GridView
         id="eventsView"
@@ -99,9 +97,7 @@
     </asp:ObjectDataSource>
 
     </div>
-    </form>
 
-    <a href="ShowEvents.aspx">Seccion para Usuarios</a>
+    <a href="Default.aspx">Inicio</a>
 
-</body>
-</html>
+</asp:Content>

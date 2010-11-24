@@ -12,17 +12,14 @@
     <h2>
         Welcome to ASP.NET!
     </h2>
-    <p>
-        To learn more about ASP.NET visit <a href="http://www.asp.net" title="ASP.NET Website">www.asp.net</a>.
-    </p>
-    <p>
-        You can also find <a href="http://go.microsoft.com/fwlink/?LinkID=152368&amp;clcid=0x409"
-            title="MSDN ASP.NET Docs">documentation on ASP.NET at MSDN</a>.
-    </p>    
 
-    <asp:Panel Visible="false" CssClass="secretContent" runat="server" ID="SecretContent">
-    Secret Content (Only administrators can access this section)
-    </asp:Panel>
+    <ul>
+        <asp:Panel Visible="false" CssClass="secretContent" runat="server" ID="SecretContent">
+            <li><a href="ShowEventsAdmin.aspx">Seccion para Administradores</a></li>
+        </asp:Panel>
+        <li><a href="ShowEvents.aspx">Seccion para Usuarios</a></li>
+        <li><a href="ShowMostVisited.aspx">Los mas Visitados</a></li>    
+    </ul>
 
     <cc1:SecurityTokenVisualizerControl ID="SecurityTokenVisualizerControl1" runat="server" />
 

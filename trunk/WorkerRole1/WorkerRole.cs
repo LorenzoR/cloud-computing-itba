@@ -15,9 +15,9 @@ namespace WorkerRole1
     public class WorkerRole : RoleEntryPoint
     {
         private CloudQueue queue;
-        private int visitCounter;
-        private Dictionary<string, int> visitCounterMap = new Dictionary<string, int>();
+        private Dictionary<string, int> visitCounter = new Dictionary<string, int>();
         EventDataSource eventDS = null;
+        public const int VISITS_NEEDED = 10;
 
         public override void Run()
         {
@@ -39,35 +39,26 @@ namespace WorkerRole1
                         var rowkey = messageParts[2];
                         //Trace.TraceInformation("Processing image in blob '{0}', partitionKey '{1}'.", visitCounter, imageBlobUri);
 
-                        visitCounter++;
 
-                        if (visitCounterMap.ContainsKey(partitionKey))
+                        if (visitCounter.ContainsKey(partitionKey))
                         {
-                            visitCounterMap[partitionKey]++;
-                            Trace.TraceInformation("=========Event '{0}', visitas = '{1}'.", partitionKey, visitCounterMap[partitionKey]);
-                            System.Diagnostics.Trace.WriteLine("=========Event " + partitionKey + ", visitas = " + visitCounterMap[partitionKey]);
+                            visitCounter[partitionKey]++;
                         }
                         else {
-                            visitCounterMap.Add(partitionKey, 1);
-                            Trace.TraceInformation("==========Event '{0}', visitas = '{1}'.", partitionKey, visitCounterMap[partitionKey]);
-                            System.Diagnostics.Trace.WriteLine("=========Event " + partitionKey + ", visitas = " + visitCounterMap[partitionKey]);
+                            visitCounter.Add(partitionKey, 1);
                         }
 
-                        if (visitCounterMap[partitionKey] >= 10)
+                        if (visitCounter[partitionKey] >= VISITS_NEEDED)
                         {
-                            
+                            EventDataModel evento = eventDS.Select(partitionKey).First();
 
-                            var query = eventDS.Select(partitionKey);
-
-                            EventDataModel evento = query.First();
-
-                            System.Diagnostics.Trace.WriteLine("!!!!!!!!! Event " + evento.Artist);
-
-                            evento.VisitCounter += visitCounterMap[partitionKey] + 100;
+                            evento.VisitCounter += visitCounter[partitionKey];
 
                             eventDS.Update(evento);
 
-                            visitCounterMap[partitionKey] = 0;
+                            visitCounter[partitionKey] = 0;
+
+                            Trace.TraceInformation("Storage Updated.");
 
                         }
 
