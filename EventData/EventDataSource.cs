@@ -17,6 +17,8 @@ namespace WebRole1
         private static CloudQueueClient queueStorage;
         private static object gate = new Object();
 
+        private static CloudBlobClient blobStorage;
+
         public EventDataSource()
         {
             var storageAccount = CloudStorageAccount.FromConfigurationSetting("DataConnectionString");
@@ -38,29 +40,27 @@ namespace WebRole1
             return queryResults;
         }
 
-        public IEnumerable<EventDataModel> Select(string PartitionKey)
+        public IEnumerable<EventDataModel> Select(string RowKey)
         {
             InitializeStorage();
 
 
             var results = from c in _ServiceContext.EventTable
-                          where c.PartitionKey == PartitionKey
+                          where c.RowKey == RowKey
                           select c;
 
             var query = results.AsTableServiceQuery<EventDataModel>();
             var queryResults = query.Execute();
 
-            EventDataModel queryEvent = (EventDataModel) queryResults.First();
-
-            System.Diagnostics.Trace.WriteLine("***********Artista : " + queryEvent.Artist);
-
+            /*EventDataModel queryEvent = (EventDataModel) queryResults.First();
+            
             // queue a message to process the image
             var queue = queueStorage.GetQueueReference("guestthumbs");
-            var message = new CloudQueueMessage(String.Format("{0},{1},{2}", PartitionKey, "parte2", "parte3"));
+            var message = new CloudQueueMessage(PartitionKey);
             queue.AddMessage(message);
-            System.Diagnostics.Trace.TraceInformation("***********Queued message to process");
-            System.Diagnostics.Trace.WriteLine("***********Queued message to process");
 
+            System.Diagnostics.Trace.WriteLine("Queued message to process");
+            */
 
             return queryResults;
         }
@@ -78,32 +78,52 @@ namespace WebRole1
                               select c;
 
             return mostVisited;
-            //return queryResults;
         }
 
         public void Delete(EventDataModel itemToDelete)
         {
-           /* System.Diagnostics.Debug.WriteLine("borro artist = " + itemToDelete.Artist);
-            System.Diagnostics.Trace.WriteLine("borro artist = " + itemToDelete.Artist);
-            */
+            System.Diagnostics.Trace.WriteLine("Borrando " + itemToDelete.PartitionKey);
+            System.Diagnostics.Trace.WriteLine("Voy a borrar " + itemToDelete.Artist);
             _ServiceContext.Detach(itemToDelete);
             _ServiceContext.AttachTo(EventDataServiceContext.EventTableName, itemToDelete, "*");
             _ServiceContext.DeleteObject(itemToDelete);
-            _ServiceContext.SaveChanges();
+            _ServiceContext.SaveChanges();/*
+            var item = (from i in _ServiceContext.EventTable
+                        where i.PartitionKey == itemToDelete.PartitionKey
+                        select i).Single();
+            _ServiceContext.DeleteObject(item);
+            _ServiceContext.SaveChanges();*/
         }
 
         public void Insert(EventDataModel newItem)
         {
+            newItem.PartitionKey = newItem.EventDate.Replace("-", "") ;
             _ServiceContext.AddObject(EventDataServiceContext.EventTableName, newItem);
             _ServiceContext.SaveChanges();
         }
 
         public void Update(EventDataModel itemToUpdate)
         {
+            System.Diagnostics.Trace.WriteLine("Actualizando " + itemToUpdate.PartitionKey);
+            System.Diagnostics.Trace.WriteLine("Actualizando " + itemToUpdate.Artist);
+            System.Diagnostics.Trace.WriteLine("Actualizando " + itemToUpdate.Place);
             _ServiceContext.Detach(itemToUpdate);
             _ServiceContext.AttachTo(EventDataServiceContext.EventTableName, itemToUpdate, "*");
             _ServiceContext.UpdateObject(itemToUpdate);
-            _ServiceContext.SaveChanges();
+            _ServiceContext.SaveChangesWithRetries();
+            /*var item = (from i in _ServiceContext.EventTable
+                        where i.PartitionKey == itemToUpdate.PartitionKey
+                        select i).Single();
+            item.Artist = itemToUpdate.Artist;
+            item.Place = itemToUpdate.Place;
+            item.Description = itemToUpdate.Description;
+            item.PartitionKey = itemToUpdate.PartitionKey;
+            item.RowKey = itemToUpdate.RowKey;
+            item.EventDate = itemToUpdate.EventDate;
+            item.Timestamp = itemToUpdate.Timestamp;
+            item.VisitCounter = itemToUpdate.VisitCounter;
+            _ServiceContext.UpdateObject(item);
+            _ServiceContext.SaveChanges();*/
         }
 
         private void InitializeStorage()
@@ -129,6 +149,22 @@ namespace WebRole1
                     queueStorage = storageAccount.CreateCloudQueueClient();
                     CloudQueue queue = queueStorage.GetQueueReference("guestthumbs");
                     queue.CreateIfNotExist();
+
+                    // create blob container for images
+                    blobStorage = storageAccount.CreateCloudBlobClient();
+                    CloudBlobContainer container = blobStorage.GetContainerReference("guestbookpics");
+                    container.CreateIfNotExist();
+
+                    // configure container for public access
+                    var permissions = container.GetPermissions();
+                    permissions.PublicAccess = BlobContainerPublicAccessType.Container;
+                    container.SetPermissions(permissions);
+
+                    // create queue to communicate with worker role
+                    queueStorage = storageAccount.CreateCloudQueueClient();
+                    CloudQueue queue2 = queueStorage.GetQueueReference("commentthumbs");
+                    queue2.CreateIfNotExist();
+
                 }
                 catch (WebException)
                 {

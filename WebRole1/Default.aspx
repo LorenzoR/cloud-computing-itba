@@ -1,10 +1,6 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="_Default" %>
 
-<%@ Register Assembly="SecurityTokenVisualizerControl" Namespace="Microsoft.Samples.DPE.Identity.Controls"
-    TagPrefix="cc1" %>
-
-
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -20,7 +16,5 @@
         <li><a href="ShowEvents.aspx">Seccion para Usuarios</a></li>
         <li><a href="ShowMostVisited.aspx">Los mas Visitados</a></li>    
     </ul>
-
-    <cc1:SecurityTokenVisualizerControl ID="SecurityTokenVisualizerControl1" runat="server" />
 
 </asp:Content>

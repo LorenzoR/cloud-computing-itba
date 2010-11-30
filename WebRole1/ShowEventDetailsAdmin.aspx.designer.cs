@@ -10,7 +10,16 @@
 namespace WebRole1 {
     
     
-    public partial class ShowEventsAdmin {
+    public partial class ShowEventDetailsAdmin {
+        
+        /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
         /// eventsView control.
@@ -22,15 +31,6 @@ namespace WebRole1 {
         protected global::System.Web.UI.WebControls.GridView eventsView;
         
         /// <summary>
-        /// frmAddComment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView frmAddComment;
-        
-        /// <summary>
         /// eventData control.
         /// </summary>
         /// <remarks>
@@ -38,5 +38,23 @@ namespace WebRole1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource eventData;
+        
+        /// <summary>
+        /// commentsView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView commentsView;
+        
+        /// <summary>
+        /// commentData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource commentData;
     }
 }

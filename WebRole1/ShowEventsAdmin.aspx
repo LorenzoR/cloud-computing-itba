@@ -10,7 +10,7 @@
         <asp:GridView
         id="eventsView"
         DataSourceId="eventData"
-        DataKeyNames="PartitionKey"
+        DataKeyNames="PartitionKey, RowKey"
         AllowPaging="False"
         AutoGenerateColumns="False"
         GridLines="Vertical"
@@ -25,6 +25,8 @@
             <asp:BoundField HeaderText="Description" DataField="Description" />
             <asp:BoundField HeaderText="EventDate" DataField="EventDate" />
             <asp:BoundField HeaderText="VisitCounter" DataField="VisitCounter" />
+            <asp:HyperLinkField HeaderText="View Event" Text="View" DataNavigateUrlFields="RowKey"
+                        DataNavigateUrlFormatString="ShowEventDetailsAdmin.aspx?RowKey={0}" />
         </Columns>
         <RowStyle BackColor="#F7F7DE" />
         <FooterStyle BackColor="#CCCC99" />
@@ -35,7 +37,7 @@
     </asp:GridView>    
         <br />        
     <asp:FormView
-        id="frmAdd"
+        id="frmAddComment"
         DataSourceId="eventData"
         DefaultMode="Insert"
         Runat="server">

@@ -1,3 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <DeploymentBuildOnly>False</DeploymentBuildOnly>
+    <DeploymentAccountName>WindowsAzureAccount1</DeploymentAccountName>
+    <DeploymentHostedService>cuandotoca</DeploymentHostedService>
+    <DeploymentHostedServiceLabel>CuandoToca Service</DeploymentHostedServiceLabel>
+    <DeploymentSlot>Production</DeploymentSlot>
+    <DeploymentIncludeIntellitrace>False</DeploymentIncludeIntellitrace>
+    <DeploymentStorageService>cuandotoca</DeploymentStorageService>
+    <DeploymentStorageServiceLabel>CuandoToca Storage</DeploymentStorageServiceLabel>
+    <DeploymentLabel>TPE - 28/11/2010 22:36:08</DeploymentLabel>
+    <DeploymentPromptBeforeDeleting>True</DeploymentPromptBeforeDeleting>
+    <DeploymentIsExpanded>True</DeploymentIsExpanded>
+  </PropertyGroup>
 </Project>

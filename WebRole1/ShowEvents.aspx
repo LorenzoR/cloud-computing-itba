@@ -10,7 +10,7 @@
         <asp:GridView
         id="eventsView"
         DataSourceId="eventData"
-        DataKeyNames="PartitionKey"
+        DataKeyNames="RowKey"
         AllowPaging="False"
         AutoGenerateColumns="False"
         GridLines="Vertical"
@@ -22,8 +22,8 @@
             <asp:BoundField HeaderText="Place" DataField="Place" />
             <asp:BoundField HeaderText="Description" DataField="Description" />
             <asp:BoundField HeaderText="EventDate" DataField="EventDate" />
-            <asp:HyperLinkField HeaderText="View Event" Text="View" DataNavigateUrlFields="PartitionKey"
-                        DataNavigateUrlFormatString="ShowEventDetails.aspx?PartitionKey={0}" />
+            <asp:HyperLinkField HeaderText="View Event" Text="View" DataNavigateUrlFields="RowKey"
+                        DataNavigateUrlFormatString="ShowEventDetails.aspx?RowKey={0}" />
         </Columns>
         <RowStyle BackColor="#F7F7DE" />
         <FooterStyle BackColor="#CCCC99" />
@@ -32,7 +32,10 @@
         <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
         <AlternatingRowStyle BackColor="White" />
     </asp:GridView>    
-        <br />        
+        <br />
+
+    
+
     <%-- Data Sources --%>
     <asp:ObjectDataSource runat="server" ID="eventData" 	TypeName="WebRole1.EventDataSource"
         DataObjectTypeName="WebRole1.EventDataModel" 
