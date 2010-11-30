@@ -64,9 +64,11 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="ShowEventDetails.aspx" />
     <Content Include="Menu.aspx" />
+    <Content Include="ShowEventDetailsAdmin.aspx" />
     <Content Include="ShowEvents.aspx" />
     <Content Include="ShowEventsAdmin.aspx" />
     <Content Include="ShowMostVisited.aspx" />
+    <Content Include="ShowToken.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -144,6 +146,13 @@
       <DependentUpon>Menu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShowEventDetailsAdmin.aspx.cs">
+      <DependentUpon>ShowEventDetailsAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowEventDetailsAdmin.aspx.designer.cs">
+      <DependentUpon>ShowEventDetailsAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ShowEvents.aspx.cs">
       <DependentUpon>ShowEvents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -165,6 +174,13 @@
     <Compile Include="ShowMostVisited.aspx.designer.cs">
       <DependentUpon>ShowMostVisited.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShowToken.aspx.cs">
+      <DependentUpon>ShowToken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowToken.aspx.designer.cs">
+      <DependentUpon>ShowToken.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -182,6 +198,10 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommentData\CommentData.csproj">
+      <Project>{EB61698D-B5DB-46CE-8368-E390D1982767}</Project>
+      <Name>CommentData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EventData\EventData.csproj">
       <Project>{ADF03252-3275-4F1B-B96F-C7192B503735}</Project>
       <Name>EventData</Name>

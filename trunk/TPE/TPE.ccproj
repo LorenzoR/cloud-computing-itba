@@ -49,6 +49,13 @@
       <RoleType>Worker</RoleType>
       <RoleName>WorkerRole1</RoleName>
     </ProjectReference>
+    <ProjectReference Include="..\WorkerRole2\WorkerRole2.csproj">
+      <Name>WorkerRole2</Name>
+      <Project>{ef2247e7-1fff-4807-8495-bf848fdd52ea}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>WorkerRole2</RoleName>
+    </ProjectReference>
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>

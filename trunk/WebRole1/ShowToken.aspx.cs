@@ -4,18 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Threading;
 
 namespace WebRole1
 {
-    public partial class ShowEventsAdmin : System.Web.UI.Page
+    public partial class ShowToken : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Thread.CurrentPrincipal.IsInRole("Administrator"))
-            {
-                Page.Response.Redirect("Default.aspx", true);
-            }
+
         }
     }
 }

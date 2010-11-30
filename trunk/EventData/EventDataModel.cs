@@ -13,7 +13,11 @@ namespace WebRole1
         {
         }
 
-        public EventDataModel(): this(Guid.NewGuid().ToString(), String.Empty)
+        /*public EventDataModel(): this(Guid.NewGuid().ToString(), string.Format("{0:10}_{1}", DateTime.MaxValue.Ticks - DateTime.Now.Ticks, Guid.NewGuid()))
+        {
+        }*/
+        public EventDataModel()
+            : this(DateTime.UtcNow.ToString("MMddyyyy"), string.Format("{0:10}_{1}", DateTime.MaxValue.Ticks - DateTime.Now.Ticks, Guid.NewGuid()))
         {
         }
 
