@@ -100,6 +100,9 @@
 
     </div>
 
-    <a href="Default.aspx">Inicio</a>
+    <ul>
+        <li><a href="ShowEvents.aspx">Ver Eventos</a></li>
+        <li><a href="ShowMostVisited.aspx">Los mas Visitados</a></li>    
+    </ul>
 
 </asp:Content>
