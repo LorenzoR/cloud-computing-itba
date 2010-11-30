@@ -12,7 +12,9 @@ public partial class _Default : System.Web.UI.Page
     {
         if (Thread.CurrentPrincipal.IsInRole("Administrator"))
         {
-            this.SecretContent.Visible = true;
+            Page.Response.Redirect("ShowEventsAdmin.aspx", true);
+            //this.SecretContent.Visible = true;
         }
+
     }
 }

@@ -10,10 +10,7 @@
     </h2>
 
     <ul>
-        <asp:Panel Visible="false" CssClass="secretContent" runat="server" ID="SecretContent">
-            <li><a href="ShowEventsAdmin.aspx">Seccion para Administradores</a></li>
-        </asp:Panel>
-        <li><a href="ShowEvents.aspx">Seccion para Usuarios</a></li>
+        <li><a href="ShowEvents.aspx">Ver Eventos</a></li>
         <li><a href="ShowMostVisited.aspx">Los mas Visitados</a></li>    
     </ul>
 
