@@ -89,7 +89,8 @@
                     id="insertButton"
                     Text="Add"
                     CommandName="Insert"
-                    Runat="server"/>
+                    Runat="server"
+                    onclick="btnTweet_Click"/>
         </InsertItemTemplate>
     </asp:FormView>
     <%-- Data Sources --%>
