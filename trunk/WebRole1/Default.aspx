@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="_Default" %>
 
 <%@ Register Assembly="SecurityTokenVisualizerControl" Namespace="Microsoft.Samples.DPE.Identity.Controls"
@@ -9,7 +9,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-        Welcome to ASP.NET!
+        Bienvenido a CuandoToca.com
     </h2>
 
     <ul>

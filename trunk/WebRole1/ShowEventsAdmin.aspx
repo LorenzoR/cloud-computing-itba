@@ -20,12 +20,12 @@
         <Columns>
             <asp:CommandField ShowDeleteButton="true"  />
             <asp:CommandField ShowEditButton="true"  />
-            <asp:BoundField HeaderText="Artist" DataField="Artist" />
-            <asp:BoundField HeaderText="Place" DataField="Place" />
-            <asp:BoundField HeaderText="Description" DataField="Description" />
-            <asp:BoundField HeaderText="EventDate" DataField="EventDate" />
-            <asp:BoundField HeaderText="VisitCounter" DataField="VisitCounter" />
-            <asp:HyperLinkField HeaderText="View Event" Text="View" DataNavigateUrlFields="RowKey"
+            <asp:BoundField HeaderText="Artista" DataField="Artist" />
+            <asp:BoundField HeaderText="Lugar" DataField="Place" />
+            <asp:BoundField HeaderText="Descripcion" DataField="Description" />
+            <asp:BoundField HeaderText="Fecha" DataField="EventDate" />
+            <asp:BoundField HeaderText="#Visitas" DataField="VisitCounter" />
+            <asp:HyperLinkField HeaderText="Ver Evento" Text="Ver" DataNavigateUrlFields="RowKey"
                         DataNavigateUrlFormatString="ShowEventDetailsAdmin.aspx?RowKey={0}" />
         </Columns>
         <RowStyle BackColor="#F7F7DE" />
@@ -44,7 +44,7 @@
         <InsertItemTemplate>
             <asp:Label
                     id="artistLabel"
-                    Text="Artist:"
+                    Text="Artista:"
                     AssociatedControlID="artistBox"
                     Runat="server" />
             <asp:TextBox
@@ -54,7 +54,7 @@
             <br />
             <asp:Label
                     id="placeLabel"
-                    Text="Place:"
+                    Text="Lugar:"
                     AssociatedControlID="placeBox"
                     Runat="server" />
             <asp:TextBox
@@ -64,7 +64,7 @@
             <br />
             <asp:Label
                     id="descriptionLabel"
-                    Text="Description:"
+                    Text="Descripcion:"
                     AssociatedControlID="descriptionBox"
                     Runat="server" />
             <asp:TextBox
@@ -76,7 +76,7 @@
             <br />
             <asp:Label
                     id="DateLabel"
-                    Text="Date:"
+                    Text="Fecha:"
                     AssociatedControlID="dateBox"
                     Runat="server" />
             <asp:TextBox
@@ -87,7 +87,7 @@
 
             <asp:Button
                     id="insertButton"
-                    Text="Add"
+                    Text="Enviar"
                     CommandName="Insert"
                     Runat="server"
                     onclick="btnTweet_Click"/>

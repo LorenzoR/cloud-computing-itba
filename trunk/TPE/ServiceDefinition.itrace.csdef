@@ -7,18 +7,21 @@
     <ConfigurationSettings>
       <Setting name="DiagnosticsConnectionString" />
       <Setting name="DataConnectionString" />
+      <Setting name="IntelliTrace.IntelliTraceConnectionString" />
     </ConfigurationSettings>
   </WebRole>
   <WorkerRole name="WorkerRole1">
     <ConfigurationSettings>
       <Setting name="DiagnosticsConnectionString" />
       <Setting name="DataConnectionString" />
+      <Setting name="IntelliTrace.IntelliTraceConnectionString" />
     </ConfigurationSettings>
   </WorkerRole>
   <WorkerRole name="WorkerRole2">
     <ConfigurationSettings>
       <Setting name="DiagnosticsConnectionString" />
       <Setting name="DataConnectionString" />
+      <Setting name="IntelliTrace.IntelliTraceConnectionString" />
     </ConfigurationSettings>
   </WorkerRole>
 </ServiceDefinition>

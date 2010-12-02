@@ -9,7 +9,8 @@ namespace WebRole1
 {
     public class EventDataServiceContext : TableServiceContext
     {
-        public EventDataServiceContext(string baseAddress, StorageCredentials credentials): base(baseAddress, credentials)
+        public EventDataServiceContext(string baseAddress, StorageCredentials credentials)
+            : base(baseAddress, credentials)
         {
         }
 
