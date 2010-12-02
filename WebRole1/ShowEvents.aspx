@@ -18,11 +18,12 @@
         BackColor="White" ForeColor="Black"
         BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4">
         <Columns>
-            <asp:BoundField HeaderText="Artist" DataField="Artist" />
-            <asp:BoundField HeaderText="Place" DataField="Place" />
-            <asp:BoundField HeaderText="Description" DataField="Description" />
-            <asp:BoundField HeaderText="EventDate" DataField="EventDate" />
-            <asp:HyperLinkField HeaderText="View Event" Text="View" DataNavigateUrlFields="RowKey"
+            <asp:BoundField HeaderText="Artista" DataField="Artist" />
+            <asp:BoundField HeaderText="Lugar" DataField="Place" />
+            <asp:BoundField HeaderText="Descripcion" DataField="Description" />
+            <asp:BoundField HeaderText="Fecha" DataField="EventDate" />
+            <asp:BoundField HeaderText="#Visitas" DataField="VisitCounter" />
+            <asp:HyperLinkField HeaderText="View Event" Text="Ver" DataNavigateUrlFields="RowKey"
                         DataNavigateUrlFormatString="ShowEventDetails.aspx?RowKey={0}" />
         </Columns>
         <RowStyle BackColor="#F7F7DE" />

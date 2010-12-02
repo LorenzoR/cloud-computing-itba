@@ -10,14 +10,15 @@ namespace WebRole1
     public class CommentDataModel
         : Microsoft.WindowsAzure.StorageClient.TableServiceEntity
     {
-       /* public CommentDataModel()
-        {
-            PartitionKey = DateTime.UtcNow.ToString("MMddyyyyhhmm");
+        /* public CommentDataModel()
+         {
+             PartitionKey = DateTime.UtcNow.ToString("MMddyyyyhhmm");
 
-            // Row key allows sorting, so we make sure the rows come back in time order.
-            RowKey = string.Format("{0:10}_{1}", DateTime.MaxValue.Ticks - DateTime.Now.Ticks, Guid.NewGuid());
-        }*/
-        public CommentDataModel(string partitionKey, string rowKey): base(partitionKey, rowKey)
+             // Row key allows sorting, so we make sure the rows come back in time order.
+             RowKey = string.Format("{0:10}_{1}", DateTime.MaxValue.Ticks - DateTime.Now.Ticks, Guid.NewGuid());
+         }*/
+        public CommentDataModel(string partitionKey, string rowKey)
+            : base(partitionKey, rowKey)
         {
         }
 
@@ -25,7 +26,8 @@ namespace WebRole1
         {
         }*/
 
-        public CommentDataModel(): this(DateTime.UtcNow.ToString("MMddyyyyhhmmss"), string.Format("{0:10}_{1}", DateTime.MaxValue.Ticks - DateTime.Now.Ticks, Guid.NewGuid()))
+        public CommentDataModel()
+            : this(DateTime.UtcNow.ToString("MMddyyyyhhmmss"), string.Format("{0:10}_{1}", DateTime.MaxValue.Ticks - DateTime.Now.Ticks, Guid.NewGuid()))
         {
         }
 

@@ -21,11 +21,11 @@
         BackColor="White" ForeColor="Black"
         BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4">
         <Columns>
-            <asp:BoundField HeaderText="Artist" DataField="Artist" />
-            <asp:BoundField HeaderText="Place" DataField="Place" />
-            <asp:BoundField HeaderText="Description" DataField="Description" />
-            <asp:BoundField HeaderText="EventDate" DataField="EventDate" />
-
+            <asp:BoundField HeaderText="Artista" DataField="Artist" />
+            <asp:BoundField HeaderText="Lugar" DataField="Place" />
+            <asp:BoundField HeaderText="Descripcion" DataField="Description" />
+            <asp:BoundField HeaderText="Fecha" DataField="EventDate" />
+            <asp:BoundField HeaderText="#Visitas" DataField="VisitCounter" />
         </Columns>
         <RowStyle BackColor="#F7F7DE" />
         <FooterStyle BackColor="#CCCC99" />
@@ -61,9 +61,9 @@
         <Columns>
             <asp:CommandField ShowDeleteButton="true"  />
             <asp:CommandField ShowEditButton="true"  />
-            <asp:BoundField HeaderText="Username" DataField="Username" />
-            <asp:BoundField HeaderText="Message" DataField="Message" />
-            <asp:BoundField HeaderText="PhotoUrl" DataField="PhotoUrl" />
+            <asp:BoundField HeaderText="Nombre" DataField="Username" />
+            <asp:BoundField HeaderText="Mensaje" DataField="Message" />
+            <asp:BoundField HeaderText="URL Foto" DataField="PhotoUrl" />
         </Columns>
         <RowStyle BackColor="#F7F7DE" />
         <FooterStyle BackColor="#CCCC99" />
@@ -78,13 +78,15 @@
     <asp:ObjectDataSource runat="server" ID="commentData" 	TypeName="WebRole1.CommentDataSource"
         DataObjectTypeName="WebRole1.CommentDataModel"
         SelectMethod="Select" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">    
-
+        <SelectParameters>
+            <asp:QueryStringParameter Name="RowKey" QueryStringField="RowKey" DefaultValue="" />
+        </SelectParameters>
     </asp:ObjectDataSource>
     
 
 
     </div>
 
-    <a href="ShowEvents.aspx">Volver</a>
+    <a href="ShowEventsAdmin.aspx">Volver</a>
 
 </asp:Content>

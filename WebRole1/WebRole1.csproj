@@ -33,11 +33,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.WindowsAzure.Diagnostics" />
     <Reference Include="Microsoft.WindowsAzure.ServiceRuntime" />
     <Reference Include="Microsoft.WindowsAzure.StorageClient" />
     <Reference Include="SecurityTokenVisualizerControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <HintPath>..\Library\SecurityTokenVisualizerControl.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -62,6 +67,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="empty.jpg" />
     <Content Include="ShowEventDetails.aspx" />
     <Content Include="Menu.aspx" />
     <Content Include="ShowEventDetailsAdmin.aspx" />

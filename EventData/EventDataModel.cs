@@ -9,7 +9,8 @@ namespace WebRole1
     public class EventDataModel : Microsoft.WindowsAzure.StorageClient.TableServiceEntity
     {
 
-        public EventDataModel(string partitionKey, string rowKey): base(partitionKey, rowKey)
+        public EventDataModel(string partitionKey, string rowKey)
+            : base(partitionKey, rowKey)
         {
         }
 
@@ -26,6 +27,6 @@ namespace WebRole1
         public string Description { get; set; }
         public string EventDate { get; set; }
         public int VisitCounter { get; set; }
-        
+
     }
 }

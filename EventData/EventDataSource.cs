@@ -97,7 +97,7 @@ namespace WebRole1
 
         public void Insert(EventDataModel newItem)
         {
-            newItem.PartitionKey = newItem.EventDate.Replace("-", "") ;
+            newItem.PartitionKey = newItem.EventDate.Replace("-", "");
             _ServiceContext.AddObject(EventDataServiceContext.EventTableName, newItem);
             _ServiceContext.SaveChanges();
         }
@@ -177,7 +177,7 @@ namespace WebRole1
             }
         }
 
-        
+
     }
-    
+
 }

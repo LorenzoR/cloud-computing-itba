@@ -21,11 +21,11 @@
         BackColor="White" ForeColor="Black"
         BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4">
         <Columns>
-            <asp:BoundField HeaderText="Artist" DataField="Artist" />
-            <asp:BoundField HeaderText="Place" DataField="Place" />
-            <asp:BoundField HeaderText="Description" DataField="Description" />
-            <asp:BoundField HeaderText="EventDate" DataField="EventDate" />
-
+            <asp:BoundField HeaderText="Artista" DataField="Artist" />
+            <asp:BoundField HeaderText="Lugar" DataField="Place" />
+            <asp:BoundField HeaderText="Descripcion" DataField="Description" />
+            <asp:BoundField HeaderText="Fecha" DataField="EventDate" />
+            <asp:BoundField HeaderText="#Visitas" DataField="VisitCounter" />
         </Columns>
         <RowStyle BackColor="#F7F7DE" />
         <FooterStyle BackColor="#CCCC99" />
@@ -46,9 +46,11 @@
 
     </div>
 
+    <hr />
+
     <div>
     
-        <h3>Comments</h3>
+        <h3>Comentarios</h3>
 
        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
@@ -68,7 +70,7 @@
                                     <%# Eval("Username") %>
                                 </div>
                                 <div class="signatureSays">
-                                    says
+                                    dice
                                 </div>
                                 <div class="signatureDate">
                                     <%# ((DateTime)Eval("Timestamp")).ToString("dd-MM-yyyy HH:mm:ss") %>
@@ -118,10 +120,10 @@
                       ID="NameRequiredValidator" 
                       runat="server" 
                       ControlToValidate="NameTextBox"
-                      Text="*" />
+                      Text="* Campo obligatorio" />
                 </dd>
                 <dt>
-                    <label for="MessageLabel">Username:</label>
+                    <label for="MessageLabel">Nombre:</label>
                 </dt>
                 <dd>
                     <asp:TextBox 
@@ -132,10 +134,10 @@
                        ID="UsernameRequiredValidator" 
                        runat="server" 
                        ControlToValidate="UsernameTextBox"
-                       Text="*" />
+                       Text="* Campo obligatorio" />
                 </dd>
                 <dt>
-                    <label for="MessageLabel">Message:</label>
+                    <label for="MessageLabel">Mensaje:</label>
                 </dt>
                 <dd>
                     <asp:TextBox 
@@ -150,7 +152,7 @@
                        Text="*" />
                 </dd>
                 <dt>
-                    <label for="FileUpload1">Photo:</label></dt>
+                    <label for="FileUpload1">Foto: (opcional)</label></dt>
                 <dd>
                     <asp:FileUpload 
                         ID="FileUpload1" 
@@ -166,7 +168,7 @@
             
                        <asp:Button
                     ID="addButton" 
-                    Text="Add"
+                    Text="Enviar"
                     onclick="SignButton_Click" 
                     Runat="server"/>
      

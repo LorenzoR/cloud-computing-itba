@@ -107,9 +107,10 @@ namespace SocialMediaLibrary
                 if (url == null)
                 {
                     //If not callback url is entered, redirect back to the current page
-                    //   _CallbackUrl = "http://" + HttpContext.Current.Request.Url.Host + ":" + HttpContext.Current.Request.Url.Port + HttpContext.Current.Request.Url.PathAndQuery;
+                    //_CallbackUrl = "http://" + HttpContext.Current.Request.Url.Host + ":" + HttpContext.Current.Request.Url.Port + HttpContext.Current.Request.Url.PathAndQuery;
+                    _CallbackUrl = "http://" + HttpContext.Current.Request.Url.Host + HttpContext.Current.Request.Url.PathAndQuery;
 
-                    _CallbackUrl = "http://" + HttpContext.Current.Request.Url.Host + ":7777" + HttpContext.Current.Request.Url.PathAndQuery;
+                    //_CallbackUrl = "http://" + HttpContext.Current.Request.Url.Host + ":7777" + HttpContext.Current.Request.Url.PathAndQuery;
 
                 }
 

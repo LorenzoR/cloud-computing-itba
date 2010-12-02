@@ -72,8 +72,8 @@ namespace WebRole1
 
         public void Insert(CommentDataModel newItem)
         {
-           // System.Diagnostics.Debug.WriteLine("PK: " + newItem.PartitionKey);
-           // System.Diagnostics.Trace.WriteLine("aaaaatexto: " + newItem.PartitionKey);
+            // System.Diagnostics.Debug.WriteLine("PK: " + newItem.PartitionKey);
+            // System.Diagnostics.Trace.WriteLine("aaaaatexto: " + newItem.PartitionKey);
             System.Diagnostics.Trace.TraceInformation("PK: " + newItem.PartitionKey);
             System.Diagnostics.Trace.TraceInformation("RK: " + newItem.RowKey);
             newItem.PartitionKey = newItem.eventID;
